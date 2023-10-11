@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header/Header";
+import HomeRoute from "./components/HomeRoute/HomeRoute";
+import ListStoriesRoute from "./components/ListStoriesRoute/ListStoriesRoute";
+import ViewStoryRoute from "./components/ViewStoryRoute/ViewStoryRoute";
+import CreateStory from "./components/CreateStory/CreateStory";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomeRoute />}></Route>
+          <Route path="/stories" element={<ListStoriesRoute />}></Route>
+          <Route path="/stories/:id" element={<ViewStoryRoute />}></Route>
+          <Route path="/create-story" element={<CreateStory />}></Route>
+          <Route path="*" element={<Navigate to="/" />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
