@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import "./CreateStory.css";
 import { storyData } from "../../data/data";
+import { createStory } from "../../services/story.service";
 
 export default function CreateStory() {
   const [userInput, setUserInput] = useState({
@@ -20,6 +21,7 @@ export default function CreateStory() {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     storyData.push(userInput);
+    createStory(userInput);
   };
 
   return (

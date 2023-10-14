@@ -1,4 +1,5 @@
 export interface StoryFiller {
+  id?: string;
   author: string;
   place: string;
   person: string;
