@@ -1,7 +1,8 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useContext } from "react";
 import "./CreateStory.css";
 import { storyData } from "../../data/data";
 import { createStory } from "../../services/story.service";
+import StoryContext from "../../context/StoryContext";
 
 export default function CreateStory() {
   const [userInput, setUserInput] = useState({
@@ -14,14 +15,16 @@ export default function CreateStory() {
     brandTagline: "",
   });
 
+  const { addStory } = useContext(StoryContext);
+
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput({ ...userInput, ...{ [e.target.name]: e.target.value } });
   };
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    storyData.push(userInput);
-    createStory(userInput);
+    // storyData.push(userInput);
+    addStory(userInput);
   };
 
   return (
