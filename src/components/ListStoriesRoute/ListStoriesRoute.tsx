@@ -14,7 +14,7 @@ export default function ListStoriesRoute() {
 
   useEffect(() => {
     retrieveStories();
-  }, []);
+  });
 
   const retrieveStories = (): void => {
     getStories().then((response) => {
@@ -26,9 +26,9 @@ export default function ListStoriesRoute() {
     <div>
       <h2>Read a Story</h2>
       <ul>
-        {stories.map((story) => (
+        {stories.map((story, index) => (
           <li key={story._id}>
-            <Link to={`/stories/${story._id}`} state={{ story: story }}>
+            <Link to={`/stories/${story._id}`} state={{ storyIndex: index }}>
               Madlib by {story.author}
             </Link>
           </li>
