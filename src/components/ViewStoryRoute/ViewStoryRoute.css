@@ -1,0 +1,19 @@
+.view-story {
+  max-width: 80vw;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.view-story__text {
+  padding: 1rem;
+}
+.view-story__links {
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+}

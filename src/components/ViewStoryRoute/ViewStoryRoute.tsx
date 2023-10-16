@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import StoryContext from "../../context/StoryContext";
 import { Link } from "react-router-dom";
+import "./ViewStoryRoute.css";
 
 export default function ViewStoryRoute() {
   const location = useLocation();

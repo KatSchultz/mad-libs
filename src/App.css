@@ -1,8 +1,15 @@
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 .App {
   text-align: center;
+  min-width: 100vw;
+  min-height: 100vh;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
 }
